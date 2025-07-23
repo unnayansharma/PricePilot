@@ -11,24 +11,35 @@ export default function GeneratorPage() {
     const form = e.target;
     const formData = new FormData(form);
 
-    const payload = {
-      product: formData.get('product'),
-      audience: formData.get('audience'),
-      const competitorsValue = formData.get('competitors');
-      const competitors = typeof competitorsValue === 'string' && competitorsValue
+    // ✅ Step 1: Extract and process data BEFORE creating payload
+    const product = formData.get('product');
+    const audience = formData.get('audience');
+
+    const competitorsValue = formData.get('competitors');
+    const competitors = typeof competitorsValue === 'string' && competitorsValue
       ? competitorsValue.split(',').map(s => s.trim()).filter(Boolean)
       : [];
-      const featuresValue = formData.get('features');
-      const features = typeof featuresValue === 'string' && featuresValue
+
+    const featuresValue = formData.get('features');
+    const features = typeof featuresValue === 'string' && featuresValue
       ? featuresValue.split(',').map(s => s.trim()).filter(Boolean)
       : [];
-    };
 
-    if (!payload.product || !payload.audience) {
+    // ✅ Step 2: Validate required fields
+    if (!product || !audience) {
       alert('Please fill in Product Name and Target Audience');
       return;
     }
 
+    // ✅ Step 3: Now create the payload object
+    const payload = {
+      product,
+      audience,
+      competitors,
+      features,
+    };
+
+    // ✅ Step 4: Call API
     setLoading(true);
     try {
       const res = await fetch('/api/generate-pricing', {
@@ -128,5 +139,5 @@ export default function GeneratorPage() {
         )}
       </div>
     </div>
-  ); // ✅ This closes the return (
-} // ✅ This closes the function GeneratorPage
+  );
+}
