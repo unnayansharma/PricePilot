@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
 
 export default function Home() {
@@ -28,7 +29,7 @@ export default function Home() {
       <header className="pt-32 pb-20 px-6 text-center max-w-5xl mx-auto">
         <h1 className="text-4xl md:text-6xl font-extrabold mb-6 leading-tight">
           Stop Guessing Your{' '}
-          <span className="text-indigo-600">&quot;SaaS Price&quot;</span>
+          <span className="text-indigo-600">“SaaS Price”</span>
         </h1>
         <p className="text-xl text-gray-600 mb-10">
           Get AI-powered pricing recommendations, revenue scenarios, and competitor insights — in under 2 minutes.
@@ -41,13 +42,13 @@ export default function Home() {
             See How It Works
           </Link>
         </div>
-        <img
+        <Image
           src="https://placehold.co/900x500/e2e8f0/475569?text=AI+Pricing+Dashboard"
           alt="Dashboard Preview"
-          className="mt-16 rounded-xl shadow-2xl border mx-auto"
           width={900}
           height={500}
-          unoptimized // Required for external URLs like placehold.co
+          className="mt-16 rounded-xl shadow-2xl border mx-auto"
+          unoptimized // Required for external domains like placehold.co
         />
       </header>
 
@@ -119,12 +120,12 @@ export default function Home() {
               className={`flex flex-col ${feature.reverse ? 'md:flex-row-reverse' : 'md:flex-row'} items-center gap-10 mb-16`}
             >
               <div className="md:w-1/2">
-                <img
+                <Image
                   src={feature.img}
                   alt={feature.title}
-                  className="rounded-lg shadow-lg w-full"
                   width={500}
                   height={300}
+                  className="rounded-lg shadow-lg w-full"
                   unoptimized
                 />
               </div>
@@ -228,11 +229,13 @@ export default function Home() {
               },
             ].map((t, i) => (
               <div key={i} className="bg-white p-6 rounded-lg shadow-md">
-                <p className="italic text-gray-600 mb-4">"{t.quote}"</p>
+                <p className="italic text-gray-600 mb-4">“{t.quote}”</p>
                 <div className="flex items-center justify-center">
-                  <img
+                  <Image
                     src={`https://ui-avatars.com/api/?name=${t.name}&background=${t.color}&color=fff`}
                     alt={t.name}
+                    width={40}
+                    height={40}
                     className="w-10 h-10 rounded-full mr-3"
                   />
                   <div className="text-left">
