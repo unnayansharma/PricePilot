@@ -9,7 +9,8 @@ export default function Home() {
       {/* Hero Section */}
       <section className="text-center py-20 px-4 bg-gradient-to-b from-white to-gray-100">
         <div className="max-w-4xl mx-auto">
-          <h1 className="text-4xl md:text-5xl font-extrabold mb-4">\            Generate Winning Pricing Pages in Seconds
+          <h1 className="text-4xl md:text-5xl font-extrabold mb-4">
+            Generate Winning Pricing Pages in Seconds
           </h1>
           <p className="text-lg text-gray-600 mb-8">
             Say goodbye to expensive designers. Launch fast, convert faster.
@@ -36,9 +37,7 @@ export default function Home() {
       {/* Features Section */}
       <section className="py-20 px-4 bg-white">
         <div className="max-w-5xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Why PricePilot?
-          </h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Why PricePilot?</h2>
           <p className="text-lg text-gray-600 mb-12">
             The easiest way to create professional pricing pages that convert.
           </p>
@@ -115,7 +114,7 @@ export default function Home() {
               <ul className="text-sm text-gray-600 mt-4 space-y-2">
                 <li>✔ Everything in Pro</li>
                 <li>✔ Team Access</li>
-                <li>✔ SLA &amp; Support</li>
+                <li>✔ SLA & Support</li>
               </ul>
             </div>
           </div>
@@ -129,7 +128,7 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-8">
             <div className="bg-gray-50 p-6 rounded-lg border border-gray-200">
               <p className="text-lg italic">
-                &quot;I created a pricing page in 30 seconds. This is wild.&quot;
+                “I created a pricing page in 30 seconds. This is wild.”
               </p>
               <div className="mt-4 flex items-center justify-center gap-3">
                 <Image
@@ -144,7 +143,7 @@ export default function Home() {
             </div>
             <div className="bg-gray-50 p-6 rounded-lg border border-gray-200">
               <p className="text-lg italic">
-                &quot;This tool saved me days of work and thousands of rupees.&quot;
+                “This tool saved me days of work and thousands of rupees.”
               </p>
               <div className="mt-4 flex items-center justify-center gap-3">
                 <Image
@@ -180,8 +179,15 @@ export default function Home() {
       {/* Footer */}
       <footer className="py-6 text-center text-sm text-gray-500 bg-white border-t">
         <p>
-          Built by <a href="https://github.com/unnayan" className="underline">@unnayan</a>. Open source on{' '}
-          <a href="https://github.com/unnayan/pricepilot" className="underline">GitHub</a>.
+          Built by{" "}
+          <a href="https://github.com/unnayan" className="underline">
+            @unnayan
+          </a>
+          . Open source on{" "}
+          <a href="https://github.com/unnayan/pricepilot" className="underline">
+            GitHub
+          </a>
+          .
         </p>
       </footer>
     </div>
