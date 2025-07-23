@@ -1,6 +1,5 @@
-'use client'; // 👈 This turns it into a Client Component
-// src/app/page.tsx
-import { useState } from 'react';
+'use client';
+
 import Link from 'next/link';
 
 export default function Home() {
@@ -28,7 +27,8 @@ export default function Home() {
       {/* Hero */}
       <header className="pt-32 pb-20 px-6 text-center max-w-5xl mx-auto">
         <h1 className="text-4xl md:text-6xl font-extrabold mb-6 leading-tight">
-          Stop Guessing Your <span className="text-indigo-600">SaaS Price</span>
+          Stop Guessing Your{' '}
+          <span className="text-indigo-600">&quot;SaaS Price&quot;</span>
         </h1>
         <p className="text-xl text-gray-600 mb-10">
           Get AI-powered pricing recommendations, revenue scenarios, and competitor insights — in under 2 minutes.
@@ -45,6 +45,9 @@ export default function Home() {
           src="https://placehold.co/900x500/e2e8f0/475569?text=AI+Pricing+Dashboard"
           alt="Dashboard Preview"
           className="mt-16 rounded-xl shadow-2xl border mx-auto"
+          width={900}
+          height={500}
+          unoptimized // Required for external URLs like placehold.co
         />
       </header>
 
@@ -88,7 +91,6 @@ export default function Home() {
         <div className="max-w-5xl mx-auto">
           <h2 className="text-4xl font-bold text-center mb-4">How PricePilot Fixes Pricing</h2>
           <p className="text-xl text-gray-600 text-center mb-16">AI that learns from thousands of SaaS models — so you don’t have to guess.</p>
-
           {[
             {
               img: 'https://placehold.co/500x300/c7d2fe/4338ca?text=AI+Recommendations',
@@ -117,7 +119,14 @@ export default function Home() {
               className={`flex flex-col ${feature.reverse ? 'md:flex-row-reverse' : 'md:flex-row'} items-center gap-10 mb-16`}
             >
               <div className="md:w-1/2">
-                <img src={feature.img} alt={feature.title} className="rounded-lg shadow-lg w-full" />
+                <img
+                  src={feature.img}
+                  alt={feature.title}
+                  className="rounded-lg shadow-lg w-full"
+                  width={500}
+                  height={300}
+                  unoptimized
+                />
               </div>
               <div className="md:w-1/2">
                 <h3 className="text-2xl font-bold mb-4">{feature.title}</h3>
@@ -140,7 +149,6 @@ export default function Home() {
         <div className="max-w-5xl mx-auto text-center">
           <h2 className="text-4xl font-bold mb-6">Simple, Transparent Pricing</h2>
           <p className="text-xl text-gray-600 mb-12">Start free. Upgrade when you’re ready.</p>
-
           <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
             {/* Free */}
             <div className="bg-white rounded-lg shadow-md p-8 border hover:shadow-xl transition">
@@ -157,7 +165,6 @@ export default function Home() {
                 Get Started Free
               </Link>
             </div>
-
             {/* Pro */}
             <div className="bg-white rounded-lg shadow-lg p-8 border-2 border-indigo-600 relative hover:shadow-2xl transition">
               <span className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-indigo-600 text-white px-4 py-1 rounded-full text-sm font-medium">
@@ -176,7 +183,6 @@ export default function Home() {
                 Upgrade to Pro
               </Link>
             </div>
-
             {/* Agency */}
             <div className="bg-white rounded-lg shadow-md p-8 border hover:shadow-xl transition">
               <h3 className="text-2xl font-bold mb-2">Agency</h3>
@@ -245,17 +251,18 @@ export default function Home() {
         <div className="max-w-4xl mx-auto">
           <h2 className="text-4xl font-bold mb-6">Ready to Price With Confidence?</h2>
           <p className="text-xl opacity-90 mb-10">Join 2,300+ founders who stopped guessing and started growing.</p>
-
           <form
             onSubmit={(e) => {
               e.preventDefault();
-              alert('🎉 Thanks! We’ll send access to your email.');
+              const email = e.currentTarget.email.value;
+              alert(`🎉 Thanks! We’ll send access to ${email}.`);
               e.currentTarget.reset();
             }}
             className="flex flex-col sm:flex-row max-w-lg mx-auto gap-4"
           >
             <input
               type="email"
+              name="email"
               placeholder="your@email.com"
               required
               className="flex-grow px-5 py-3 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-white"
