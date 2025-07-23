@@ -14,12 +14,14 @@ export default function GeneratorPage() {
     const payload = {
       product: formData.get('product'),
       audience: formData.get('audience'),
-      competitors: formData.get('competitors')
-        ? formData.get('competitors').split(',').map(s => s.trim()).filter(Boolean)
-        : [],
-      features: formData.get('features')
-        ? formData.get('features').split(',').map(s => s.trim()).filter(Boolean)
-        : [],
+      const competitorsValue = formData.get('competitors');
+      const competitors = typeof competitorsValue === 'string' && competitorsValue
+      ? competitorsValue.split(',').map(s => s.trim()).filter(Boolean)
+      : [];
+      const featuresValue = formData.get('features');
+      const features = typeof featuresValue === 'string' && featuresValue
+      ? featuresValue.split(',').map(s => s.trim()).filter(Boolean)
+      : [];
     };
 
     if (!payload.product || !payload.audience) {
